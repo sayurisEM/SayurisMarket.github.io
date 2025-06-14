@@ -3,11 +3,11 @@ const products = {
         title: 'Edredones',
         icon: '🛏️',
         models: [
-            { name: 'Edredón Clásico Individual', price: 40, description: 'Suave y cómodo para una persona', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop' },
-            { name: 'Edredón Clásico Matrimonial', price: 45, description: 'Perfecto para parejas', image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop' },
-            { name: 'Edredón Premium Individual', price: 50, description: 'Calidad superior, muy abrigador', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&brightness=1.2' },
-            { name: 'Edredón Premium Matrimonial', price: 55, description: 'Lujo y comodidad para dos', image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop&brightness=1.2' },
-            { name: 'Edredón Deluxe King Size', price: 60, description: 'El más amplio y lujoso', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&saturation=1.3' }
+            { name: 'Edredón Clásico Individual', price: 40, description: 'Suave y cómodo para una persona', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop', colors: ['beige', 'blue', 'white'] },
+            { name: 'Edredón Clásico Matrimonial', price: 45, description: 'Perfecto para parejas', image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop', colors: ['brown', 'light-grey', 'ivory'] },
+            { name: 'Edredón Premium Individual', price: 50, description: 'Calidad superior, muy abrigador', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&brightness=1.2', colors: ['dark-grey', 'red', 'white'] },
+            { name: 'Edredón Premium Matrimonial', price: 55, description: 'Lujo y comodidad para dos', image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop&brightness=1.2', colors: ['beige', 'brown', 'blue', 'white'] },
+            { name: 'Edredón Deluxe King Size', price: 60, description: 'El más amplio y lujoso', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&saturation=1.3', colors: ['light-grey', 'dark-grey', 'ivory'] }
         ]
     },
     casacas: {
@@ -52,7 +52,19 @@ function showModels(productType) {
     product.models.forEach((model, index) => {
         const modelDiv = document.createElement('div');
         modelDiv.className = 'model-item';
-        modelDiv.onclick = () => toggleModelSelection(index);
+        // modelDiv.onclick = () => toggleModelSelection(index); // Removed direct click to div for selection
+
+        let colorOptionsHtml = '';
+        if (model.colors && model.colors.length > 0) {
+            colorOptionsHtml = `
+                <div class="color-selector">
+                    <label>Color:</label>
+                    <div class="colors">
+                        ${model.colors.map(color => `<span class="color-option ${color}" data-color="${color}" data-model-index="${index}"></span>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
         
         modelDiv.innerHTML = `
             <img class="model-image" src="${model.image}" alt="${model.name}" onerror="this.innerHTML='Imagen no disponible'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center';">
@@ -62,10 +74,46 @@ function showModels(productType) {
                     <span class="model-price">S/ ${model.price}</span>
                 </div>
                 <div style="color: #666; font-size: 0.9rem;">${model.description}</div>
+                ${colorOptionsHtml}
+            </div>
+            <div class="quantity-selector" style="margin-left: auto;">
+                <button class="quantity-btn" onclick="changeQuantityForModel(${index}, -1, event)">-</button>
+                <span class="quantity-display" id="qty-${productType}-${index}">0</span>
+                <button class="quantity-btn" onclick="changeQuantityForModel(${index}, 1, event)">+</button>
             </div>
         `;
         
         modelsContainer.appendChild(modelDiv);
+    });
+
+    // Add event listeners for color options after they are in the DOM
+    document.querySelectorAll('.color-option').forEach(option => {
+        option.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent model item from being selected when clicking color
+            const modelIndex = parseInt(this.dataset.modelIndex);
+            const selectedColor = this.dataset.color;
+
+            // Remove selected class from other color options for this model
+            const parentColorsDiv = this.closest('.colors');
+            parentColorsDiv.querySelectorAll('.color-option').forEach(otherOption => {
+                otherOption.classList.remove('selected');
+            });
+            // Add selected class to the clicked color option
+            this.classList.add('selected');
+
+            // Update the selectedModels array with the chosen color for this model
+            const itemInSelection = selectedModels.find(item => 
+                item.productType === currentProduct && item.modelIndex === modelIndex
+            );
+
+            if (itemInSelection) {
+                itemInSelection.selectedColor = selectedColor;
+            }
+            // If the model is not yet in selectedModels, it will be added when quantity is increased
+            
+            console.log(`Model ${products[currentProduct].models[modelIndex].name}, Color seleccionado: ${selectedColor}`);
+            updateSelectionSummary(); // Update summary to reflect color (if needed in summary)
+        });
     });
 
     // Reset selections
@@ -75,41 +123,66 @@ function showModels(productType) {
     modal.style.display = 'block';
 }
 
-function toggleModelSelection(modelIndex) {
+function changeQuantityForModel(modelIndex, change, event) {
+    if (event) event.stopPropagation(); // Prevent model item from being selected when changing quantity
+
     const product = products[currentProduct];
     const model = product.models[modelIndex];
     const modelDiv = document.querySelectorAll('.model-item')[modelIndex];
+    const quantityDisplay = document.getElementById(`qty-${currentProduct}-${modelIndex}`);
     
-    const existingIndex = selectedModels.findIndex(item => 
+    let itemInSelection = selectedModels.find(item => 
         item.productType === currentProduct && item.modelIndex === modelIndex
     );
-    
-    if (existingIndex > -1) {
+
+    let currentQuantity = itemInSelection ? itemInSelection.quantity : 0;
+    let newQuantity = currentQuantity + change;
+
+    if (newQuantity < 0) newQuantity = 0; // Ensure quantity doesn't go below 0
+
+    const selectedColorOption = modelDiv.querySelector('.color-option.selected');
+    const selectedColor = selectedColorOption ? selectedColorOption.dataset.color : 'No especificado';
+
+    if (newQuantity === 0) {
         // Remove from selection
-        selectedModels.splice(existingIndex, 1);
-        modelDiv.classList.remove('selected');
-        const countElement = modelDiv.querySelector('.selected-count');
-        if (countElement) countElement.remove();
+        if (itemInSelection) {
+            const itemIndex = selectedModels.indexOf(itemInSelection);
+            selectedModels.splice(itemIndex, 1);
+            modelDiv.classList.remove('selected');
+        }
+        quantityDisplay.textContent = '0';
     } else {
-        // Add to selection
-        selectedModels.push({
-            productType: currentProduct,
-            modelIndex: modelIndex,
-            name: model.name,
-            price: model.price,
-            description: model.description,
-            quantity: 1
-        });
-        modelDiv.classList.add('selected');
-        
-        const countElement = document.createElement('div');
-        countElement.className = 'selected-count';
-        countElement.textContent = '1';
-        modelDiv.appendChild(countElement);
+        if (itemInSelection) {
+            itemInSelection.quantity = newQuantity;
+            itemInSelection.selectedColor = selectedColor; // Update color in case it was changed after initial selection
+        } else {
+            // Add to selection
+            selectedModels.push({
+                productType: currentProduct,
+                modelIndex: modelIndex,
+                name: model.name,
+                price: model.price,
+                description: model.description,
+                quantity: newQuantity,
+                selectedColor: selectedColor // Store the selected color
+            });
+            modelDiv.classList.add('selected');
+        }
+        quantityDisplay.textContent = newQuantity;
     }
     
     updateSelectionSummary();
 }
+
+
+// Modified toggleModelSelection to be a no-op or removed if not needed
+function toggleModelSelection(modelIndex) {
+    // This function is largely replaced by changeQuantityForModel
+    // If you want clicking the item to *only* select/deselect (without quantity change directly),
+    // you'd need to re-think the interaction. For now, quantity buttons handle selection implicitly.
+    console.log("toggleModelSelection is now handled by quantity buttons and color selection.");
+}
+
 
 function updateSelectionSummary() {
     const summaryDiv = document.getElementById('selectionSummary');
@@ -135,7 +208,8 @@ function updateSelectionSummary() {
         itemDiv.innerHTML = `
             <div>
                 <strong>${item.name}</strong><br>
-                <small>Cantidad: ${item.quantity} - S/ ${item.price} c/u</small>
+                <small>Cantidad: ${item.quantity} - S/ ${item.price} c/u</small><br>
+                <small>Color: ${item.selectedColor || 'No especificado'}</small>
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
                 <div class="quantity-selector" style="margin: 0;">
@@ -151,6 +225,21 @@ function updateSelectionSummary() {
     });
     
     totalPriceSpan.textContent = total.toFixed(2);
+
+    // Update quantities in the main modal view
+    products[currentProduct].models.forEach((model, index) => {
+        const qtyDisplay = document.getElementById(`qty-${currentProduct}-${index}`);
+        const item = selectedModels.find(sItem => sItem.productType === currentProduct && sItem.modelIndex === index);
+        if (qtyDisplay) {
+            qtyDisplay.textContent = item ? item.quantity : '0';
+        }
+        const modelDiv = document.querySelectorAll('.model-item')[index];
+        if (item && item.quantity > 0) {
+            modelDiv.classList.add('selected');
+        } else {
+            modelDiv.classList.remove('selected');
+        }
+    });
 }
 
 function changeItemQuantity(itemIndex, change) {
@@ -159,31 +248,26 @@ function changeItemQuantity(itemIndex, change) {
     
     if (newQuantity >= 1) {
         item.quantity = newQuantity;
-        
-        // Update the count badge
-        const modelDiv = document.querySelectorAll('.model-item')[item.modelIndex];
-        const countElement = modelDiv.querySelector('.selected-count');
-        if (countElement) {
-            countElement.textContent = newQuantity;
-        }
-        
         updateSelectionSummary();
+    } else if (newQuantity === 0) {
+        removeItem(itemIndex);
     }
 }
 
 function removeItem(itemIndex) {
     const item = selectedModels[itemIndex];
-    
-    // Remove visual selection
-    const modelDiv = document.querySelectorAll('.model-item')[item.modelIndex];
-    modelDiv.classList.remove('selected');
-    const countElement = modelDiv.querySelector('.selected-count');
-    if (countElement) countElement.remove();
-    
-    // Remove from array
+    if (item) {
+        const modelDiv = document.querySelectorAll('.model-item')[item.modelIndex];
+        modelDiv.classList.remove('selected');
+        const qtyDisplay = document.getElementById(`qty-${item.productType}-${item.modelIndex}`);
+        if (qtyDisplay) {
+            qtyDisplay.textContent = '0';
+        }
+    }
     selectedModels.splice(itemIndex, 1);
     updateSelectionSummary();
 }
+
 
 function confirmPurchase() {
     if (selectedModels.length === 0) return;
@@ -197,6 +281,7 @@ function confirmPurchase() {
         
         message += `${index + 1}. ${item.name}\n`;
         message += `   📦 Cantidad: ${item.quantity}\n`;
+        message += `   🎨 Color: ${item.selectedColor || 'No especificado'}\n`; // Include color here
         message += `   💰 Precio unitario: S/ ${item.price}.00\n`;
         message += `   💵 Subtotal: S/ ${subtotal}.00\n`;
         message += `   📝 ${item.description}\n\n`;
