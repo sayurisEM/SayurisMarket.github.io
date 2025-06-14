@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayuri Market - Edredones, Casacas y Gorros</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Sayuri Market</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>¡Bienvenidos a Sayuri Market!</h1>
+            <p>Tu tienda de confianza para edredones, casacas y gorros de calidad</p>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="container">
+            <h2>Nuestros Productos</h2>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-icon">🛏️</div>
+                    <h3>Edredones</h3>
+                    <p>Edredones cómodos y calientitos para un descanso perfecto</p>
+                    <div class="price-range">S/ 40 - S/ 60</div>
+                    <button class="info-btn" onclick="showModels('edredones')">Ver Modelos</button>
+                    <button class="buy-btn" onclick="showModels('edredones')">Comprar</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">🧥</div>
+                    <h3>Casacas</h3>
+                    <p>Casacas modernas y abrigadoras para cualquier ocasión</p>
+                    <div class="price-range">S/ 30 - S/ 80</div>
+                    <button class="info-btn" onclick="showModels('casacas')">Ver Modelos</button>
+                    <button class="buy-btn" onclick="showModels('casacas')">Comprar</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">🧢</div>
+                    <h3>Gorros</h3>
+                    <p>Gorros stylish para mantenerte abrigado con estilo</p>
+                    <div class="price-range">S/ 10 - S/ 29</div>
+                    <button class="info-btn" onclick="showModels('gorros')">Ver Modelos</button>
+                    <button class="buy-btn" onclick="showModels('gorros')">Comprar</button>
+                </div>
+            </div>
+
+            <div class="whatsapp-info">
+                <h3>📱 ¡Compra por WhatsApp!</h3>
+                <p>Selecciona tu modelo favorito y se abrirá WhatsApp con tu pedido listo para enviar</p>
+                <p><strong>Número: +51 955 360 417</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para mostrar modelos -->
+    <div id="modelsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Selecciona tus modelos</h2>
+            <div id="modelsContainer" class="models-grid"></div>
+            <div class="selection-summary" id="selectionSummary">
+                <h4>Productos seleccionados:</h4>
+                <div id="selectedItems"></div>
+                <div style="margin-top: 1rem; font-weight: bold; text-align: right;">
+                    Total: S/ <span id="totalPrice">0</span>
+                </div>
+            </div>
+            <button class="confirm-btn" id="confirmBtn" onclick="confirmPurchase()" disabled>Comprar Productos Seleccionados</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sayuri Market. Todos los derechos reservados.</p>
+            <p>Contacto: +51 955 360 417</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
