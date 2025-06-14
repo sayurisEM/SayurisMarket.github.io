@@ -29,31 +29,10 @@ header {
 
 .header-content {
     display: flex;
-    justify-content: center; /* Centra el contenido horizontalmente */
+    justify-content: center;
     align-items: center;
 }
 
-/* Regla para el CONTENEDOR del logo (la nueva clase que agregamos) */
-.logo-container {
-    /* Aquí podrías añadir estilos si necesitas espacio o alineación especial
-       ej: margin-right: auto; para moverlo a la izquierda si añades un menú a la derecha */
-}
-
-
-/* ESTA ES LA REGLA CLAVE para el logo IMAGEN */
-.header-logo {
-    max-width: 200px; /* Ajusta este valor al tamaño que desees para tu logo */
-    height: auto;     /* Muy importante: mantiene la proporción de la imagen */
-    display: block;   /* Elimina cualquier espacio extra que pueda aparecer debajo */
-}
-
-
-/* La regla '.logo' anterior que estilizaba el TEXTO "Sayuri Market"
-   YA NO ES NECESARIA si tu logo es una imagen. Puedes eliminarla o comentarla.
-   Si en algún otro lugar quieres usar "Sayuri Market" como texto con gradiente,
-   dale una clase diferente y aplica los estilos ahí.
-*/
-/*
 .logo {
     font-size: 2.5rem;
     font-weight: bold;
@@ -62,8 +41,6 @@ header {
     -webkit-text-fill-color: transparent;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-*/
-
 
 .hero {
     text-align: center;
@@ -421,9 +398,8 @@ footer {
         font-size: 2rem;
     }
     
-    /* MODIFICACIÓN PARA EL LOGO EN MÓVILES */
-    .header-logo {
-        max-width: 150px; /* Ajusta para un tamaño más pequeño en móviles */
+    .logo {
+        font-size: 2rem;
     }
     
     .product-grid {
