@@ -209,7 +209,7 @@ header {
     transition: all 0.3s ease;
     border: 2px solid transparent;
     display: flex;
-    align-items: flex-start; /* Changed to flex-start to align color selector properly */
+    align-items: center;
     gap: 1rem;
     position: relative;
 }
@@ -393,59 +393,6 @@ footer {
     margin-top: 2rem;
 }
 
-/* --- Color Selector Styles --- */
-.color-selector {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping for many colors */
-    gap: 5px; /* Adjust gap for better spacing */
-}
-
-.color-selector label {
-    margin-right: 10px;
-    font-size: 0.9em;
-    color: #333;
-    white-space: nowrap; /* Prevent label from wrapping */
-}
-
-.color-selector .colors {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap; /* Allow wrapping for many colors */
-}
-
-.color-selector .color-option {
-    width: 25px; /* Slightly larger circles */
-    height: 25px; /* Slightly larger circles */
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease;
-}
-
-.color-selector .color-option:hover {
-    transform: scale(1.1);
-    border-color: #667eea; /* Highlight on hover */
-}
-
-.color-selector .color-option.selected {
-    outline: 2px solid #007bff; /* Blue outline for selected color */
-    outline-offset: 2px; /* Offset the outline */
-    transform: scale(1.1); /* Slightly enlarge selected color */
-}
-
-/* Specific Color Definitions */
-.color-selector .color-option.beige { background-color: #F5F5DC; }
-.color-selector .color-option.brown { background-color: #A0522D; }
-.color-selector .color-option.blue { background-color: #6495ED; }
-.color-selector .color-option.light-grey { background-color: #D3D3D3; }
-.color-selector .color-option.dark-grey { background-color: #696969; }
-.color-selector .color-option.white { background-color: #FFFFFF; border: 1px solid #eee;} /* White needs a subtle border */
-.color-selector .color-option.red { background-color: #FF0000; }
-.color-selector .color-option.ivory { background-color: #FFFFF0; }
-
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2rem;
@@ -462,24 +409,5 @@ footer {
     .modal-content {
         margin: 10% auto;
         width: 95%;
-    }
-
-    .model-item {
-        flex-direction: column; /* Stack image and info on small screens */
-        align-items: center;
-        text-align: center;
-    }
-
-    .model-image {
-        margin-bottom: 1rem;
-    }
-
-    .model-details {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .color-selector {
-        justify-content: center; /* Center color options on small screens */
     }
 }
