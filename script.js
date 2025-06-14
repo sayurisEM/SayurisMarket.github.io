@@ -15,6 +15,7 @@ const products = {
         icon: '🧥',
         models: [
             { name: 'Casaca Básica', price: 30, description: 'Simple y funcional', image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop' },
+            { name: 'Casaca Básica', price: 30, description: 'Simple y funcional', image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop' },
             { name: 'Casaca Deportiva', price: 40, description: 'Ideal para ejercicio y actividades', image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5d?w=400&h=300&fit=crop' },
             { name: 'Casaca Casual', price: 50, description: 'Perfecta para el día a día', image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&brightness=1.1' },
             { name: 'Casaca Fashion', price: 60, description: 'Moderna y con estilo', image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5d?w=400&h=300&fit=crop&brightness=1.1' },
