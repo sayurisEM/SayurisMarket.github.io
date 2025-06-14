@@ -29,35 +29,41 @@ header {
 
 .header-content {
     display: flex;
-    justify-content: center; /* Mantener centrado si solo es el logo */
+    justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center;
 }
 
-/* ELIMINAR O MODIFICAR ESTA REGLA SI YA NO ES TEXTO PURO
-   Si tienes otros elementos en .logo que no son la imagen,
-   entonces podrías ajustar esta clase a algo como .site-title
-   y aplicar los estilos de texto a ese nuevo elemento.
-   Pero si .logo ahora solo contiene la imagen, esta regla ya no es necesaria.
+/* Regla para el CONTENEDOR del logo (la nueva clase que agregamos) */
+.logo-container {
+    /* Aquí podrías añadir estilos si necesitas espacio o alineación especial
+       ej: margin-right: auto; para moverlo a la izquierda si añades un menú a la derecha */
+}
+
+
+/* ESTA ES LA REGLA CLAVE para el logo IMAGEN */
+.header-logo {
+    max-width: 200px; /* Ajusta este valor al tamaño que desees para tu logo */
+    height: auto;     /* Muy importante: mantiene la proporción de la imagen */
+    display: block;   /* Elimina cualquier espacio extra que pueda aparecer debajo */
+}
+
+
+/* La regla '.logo' anterior que estilizaba el TEXTO "Sayuri Market"
+   YA NO ES NECESARIA si tu logo es una imagen. Puedes eliminarla o comentarla.
+   Si en algún otro lugar quieres usar "Sayuri Market" como texto con gradiente,
+   dale una clase diferente y aplica los estilos ahí.
 */
-/* .logo {
+/*
+.logo {
     font-size: 2.5rem;
     font-weight: bold;
     background: linear-gradient(45deg, #667eea, #764ba2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-} */
-
-/* NUEVA REGLA PARA EL LOGO IMAGEN */
-.header-logo {
-    max-width: 200px; /* Ajusta este valor al tamaño deseado para tu logo */
-    height: auto;     /* Mantiene la proporción de la imagen */
-    display: block;   /* Para control de diseño */
-    /* Si quieres el logo centrado en el header, y no tienes otros elementos
-       en .header-content que interfieran, justify-content: center en .header-content
-       ya lo hará. Si tienes más cosas y quieres el logo a un lado,
-       tendrás que ajustar el display de .header-content. */
 }
+*/
+
 
 .hero {
     text-align: center;
@@ -416,8 +422,6 @@ footer {
     }
     
     /* MODIFICACIÓN PARA EL LOGO EN MÓVILES */
-    /* Antes: .logo { font-size: 2rem; }
-       Ahora: Estilizamos la imagen directamente */
     .header-logo {
         max-width: 150px; /* Ajusta para un tamaño más pequeño en móviles */
     }
