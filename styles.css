@@ -21,7 +21,7 @@ header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     padding: 1rem 0;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -29,7 +29,7 @@ header {
 
 .header-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -39,25 +39,13 @@ header {
     background: linear-gradient(45deg, #667eea, #764ba2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .hero {
     text-align: center;
     padding: 4rem 0;
     color: white;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
 }
 
 .products {
@@ -77,42 +65,35 @@ header {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-bottom: 2rem;
 }
 
 .product-card {
     background: white;
     border-radius: 15px;
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    text-align: center;
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .product-icon {
     font-size: 4rem;
-    text-align: center;
     margin-bottom: 1rem;
 }
 
 .product-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    text-align: center;
     color: #333;
-}
-
-.product-card p {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #666;
 }
 
 .price-range {
@@ -130,11 +111,11 @@ header {
     font-size: 1.1rem;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.3s ease;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 1rem;
+    transition: all 0.3s ease;
 }
 
 .info-btn {
@@ -142,19 +123,9 @@ header {
     color: white;
 }
 
-.info-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
-}
-
 .buy-btn {
     background: linear-gradient(45deg, #667eea, #764ba2);
     color: white;
-}
-
-.buy-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }
 
 .modal {
@@ -165,7 +136,7 @@ header {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
 }
 
@@ -191,10 +162,6 @@ header {
     color: #999;
 }
 
-.close:hover {
-    color: #333;
-}
-
 .models-grid {
     display: grid;
     gap: 1rem;
@@ -205,7 +172,6 @@ header {
     background: #f8f9fa;
     padding: 1rem;
     border-radius: 10px;
-    cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
     display: flex;
@@ -219,22 +185,11 @@ header {
     transform: translateY(-2px);
 }
 
-.model-item.selected {
-    border-color: #667eea;
-    background: rgba(102, 126, 234, 0.1);
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
-}
-
-.model-info {
-    flex: 1;
-}
-
 .model-image {
     width: 100px;
     height: 100px;
     border-radius: 10px;
     object-fit: cover;
-    min-width: 100px;
     background: #f0f0f0;
     display: flex;
     align-items: center;
@@ -257,6 +212,7 @@ header {
     position: absolute;
     top: -10px;
     right: -10px;
+    z-index: 10;
 }
 
 .selection-summary {
@@ -279,10 +235,6 @@ header {
     border-bottom: 1px solid #ddd;
 }
 
-.selected-item:last-child {
-    border-bottom: none;
-}
-
 .remove-btn {
     background: #dc3545;
     color: white;
@@ -290,8 +242,8 @@ header {
     border-radius: 50%;
     width: 25px;
     height: 25px;
-    cursor: pointer;
     font-size: 0.8rem;
+    cursor: pointer;
 }
 
 .model-details {
@@ -311,36 +263,36 @@ header {
     font-weight: bold;
 }
 
-.quantity-selector {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1.5rem 0;
-    gap: 1rem;
+.color-options, .size-options {
+    margin: 0.5rem 0;
 }
 
-.quantity-btn {
-    background: #667eea;
+.color-select, .size-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 0.25rem;
+}
+
+.add-to-cart-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
     color: white;
     border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.quantity-btn:hover {
-    background: #764ba2;
-    transform: scale(1.1);
-}
-
-.quantity-display {
-    font-size: 1.2rem;
     font-weight: bold;
-    min-width: 40px;
-    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.add-to-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }
 
 .confirm-btn {
@@ -372,7 +324,7 @@ header {
 }
 
 .whatsapp-info {
-    background: #25D366;
+    background: #25d366;
     color: white;
     padding: 2rem;
     border-radius: 15px;
@@ -380,34 +332,49 @@ header {
     margin: 2rem 0;
 }
 
-.whatsapp-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
 footer {
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     text-align: center;
     padding: 2rem 0;
     margin-top: 2rem;
 }
 
+.selection-indicator {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+}
+
+.selected .selection-indicator {
+    display: block;
+}
+
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2rem;
     }
-    
+
     .logo {
         font-size: 2rem;
     }
-    
+
     .product-grid {
         grid-template-columns: 1fr;
     }
 
     .modal-content {
-        margin: 10% auto;
         width: 95%;
+        margin: 10% auto;
     }
 }
