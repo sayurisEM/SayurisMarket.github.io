@@ -16,27 +16,6 @@ const products = {
                 description: 'Perfecto para parejas',
                 image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop',
                 colors: ['Azul', 'Verde', 'Rosa']
-            },
-            {
-                name: 'Edredón Premium Individual',
-                price: 50,
-                description: 'Calidad superior, muy abrigador',
-                image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&brightness=1.2',
-                colors: ['Negro', 'Mostaza', 'Café']
-            },
-            {
-                name: 'Edredón Premium Matrimonial',
-                price: 55,
-                description: 'Lujo y comodidad para dos',
-                image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop&brightness=1.2',
-                colors: ['Rojo', 'Naranja', 'Amarillo']
-            },
-            {
-                name: 'Edredón Deluxe King Size',
-                price: 60,
-                description: 'El más amplio y lujoso',
-                image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&saturation=1.3',
-                colors: ['Plata', 'Dorado', 'Plateado']
             }
         ]
     },
@@ -59,38 +38,6 @@ const products = {
                 image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5d?w=400&h=300&fit=crop',
                 sizes: ['S', 'M', 'L', 'XL'],
                 colors: ['Rojo', 'Verde', 'Amarillo']
-            },
-            {
-                name: 'Casaca Casual',
-                price: 50,
-                description: 'Perfecta para el día a día',
-                image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&brightness=1.1',
-                sizes: ['S', 'M', 'L', 'XL'],
-                colors: ['Beige', 'Mostaza', 'Café']
-            },
-            {
-                name: 'Casaca Fashion',
-                price: 60,
-                description: 'Moderna y con estilo',
-                image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5d?w=400&h=300&fit=crop&brightness=1.1',
-                sizes: ['S', 'M', 'L', 'XL'],
-                colors: ['Rosa', 'Azul Claro', 'Verde Militar']
-            },
-            {
-                name: 'Casaca Premium',
-                price: 70,
-                description: 'Materiales de alta calidad',
-                image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&saturation=1.2',
-                sizes: ['S', 'M', 'L', 'XL'],
-                colors: ['Negro', 'Blanco', 'Gris Oscuro']
-            },
-            {
-                name: 'Casaca de Lujo',
-                price: 80,
-                description: 'La mejor calidad y diseño',
-                image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5d?w=400&h=300&fit=crop&saturation=1.2',
-                sizes: ['S', 'M', 'L', 'XL'],
-                colors: ['Dorado', 'Plata', 'Bronce']
             }
         ]
     },
@@ -99,11 +46,7 @@ const products = {
         icon: '🧢',
         models: [
             { name: 'Gorro Básico', price: 10, description: 'Sencillo y económico', image: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=400&h=300&fit=crop' },
-            { name: 'Gorro de Lana', price: 15, description: 'Abrigador para el frío', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop' },
-            { name: 'Gorro Deportivo', price: 18, description: 'Para actividades físicas', image: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=400&h=300&fit=crop&brightness=1.1' },
-            { name: 'Gorro Fashion', price: 22, description: 'Moderno y con estilo', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&brightness=1.1' },
-            { name: 'Gorro Premium', price: 25, description: 'Calidad superior', image: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=400&h=300&fit=crop&saturation=1.2' },
-            { name: 'Gorro de Diseñador', price: 29, description: 'Exclusivo y elegante', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&saturation=1.2' }
+            { name: 'Gorro de Lana', price: 15, description: 'Abrigador para el frío', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop' }
         ]
     }
 };
@@ -137,7 +80,7 @@ function showModels(productType) {
                     <strong>Color:</strong>
                     <select class="color-select" data-model-index="${index}">
                         <option value="">Selecciona un color</option>
-                        ${model.colors.map(color => `<option value="${color}">${color}</option>`).join('')}
+                        ${model.colors ? model.colors.map(color => `<option value="${color}">${color}</option>`).join('') : ''}
                     </select>
                 </div>
                 <!-- Opción de talla solo para casacas -->
@@ -146,7 +89,7 @@ function showModels(productType) {
                     <strong>Talla:</strong>
                     <select class="size-select" data-model-index="${index}">
                         <option value="">Selecciona una talla</option>
-                        ${model.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                        ${model.sizes ? model.sizes.map(size => `<option value="${size}">${size}</option>`).join('') : ''}
                     </select>
                 </div>
                 ` : ''}
