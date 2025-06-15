@@ -3,77 +3,44 @@ const products = {
         title: 'Edredones',
         icon: '🛏️',
         models: [
-            { name: 'Edredón Clásico Individual', price: 40, description: 'Suave y cómodo para una persona', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop' },
-            { name: 'Edredón Clásico Matrimonial', price: 45, description: 'Perfecto para parejas', image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop' },
-            { name: 'Edredón Premium Individual', price: 50, description: 'Calidad superior, muy abrigador', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&brightness=1.2' },
-            { name: 'Edredón Premium Matrimonial', price: 55, description: 'Lujo y comodidad para dos', image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop&brightness=1.2' },
-            { name: 'Edredón Deluxe King Size', price: 60, description: 'El más amplio y lujoso', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&saturation=1.3' }
+            { name: 'Edredón Clásico Individual', price: 40, description: 'Suave y cómodo para una persona', image: 'images/logo.png' },
+            { name: 'Edredón Clásico Matrimonial', price: 45, description: 'Perfecto para parejas', image: 'images/logo.png' },
+            { name: 'Edredón Premium Individual', price: 50, description: 'Calidad superior, muy abrigador', image: 'images/logo.png' },
+            { name: 'Edredón Premium Matrimonial', price: 55, description: 'Lujo y comodidad para dos', image: 'images/logo.png' },
+            { name: 'Edredón Deluxe King Size', price: 60, description: 'El más amplio y lujoso', image: 'images/logo.png' }
         ]
     },
     casacas: {
-        title: 'Casacas',
+        title: 'Casacas Mujer',
         icon: '🧥',
         models: [
-            {
-                name: 'Casaca Básica',
-                price: 30,
-                description: 'Simple y funcional',
-                image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop',
-                sizes: ['S', 'M', 'L', 'XL'],
-                colors: ['Negro', 'Gris', 'Azul']
-            },
-            {
-                name: 'Casaca Deportiva',
-                price: 40,
-                description: 'Ideal para ejercicio y actividades',
-                image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5d?w=400&h=300&fit=crop',
-                sizes: ['S', 'M', 'L', 'XL'],
-                colors: ['Rojo', 'Verde', 'Amarillo']
-            },
-            {
-                name: 'Casaca Casual',
-                price: 50,
-                description: 'Perfecta para el día a día',
-                image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&brightness=1.1',
-                sizes: ['S', 'M', 'L', 'XL'],
-                colors: ['Beige', 'Mostaza', 'Café']
-            },
-            {
-                name: 'Casaca Fashion',
-                price: 60,
-                description: 'Moderna y con estilo',
-                image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5d?w=400&h=300&fit=crop&brightness=1.1',
-                sizes: ['S', 'M', 'L', 'XL'],
-                colors: ['Rosa', 'Azul Oscuro', 'Verde Militar']
-            },
-            {
-                name: 'Casaca Premium',
-                price: 70,
-                description: 'Materiales de alta calidad',
-                image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&saturation=1.2',
-                sizes: ['S', 'M', 'L', 'XL'],
-                colors: ['Negro', 'Blanco', 'Gris Oscuro']
-            },
-            {
-                name: 'Casaca de Lujo',
-                price: 80,
-                description: 'La mejor calidad y diseño',
-                image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5d?w=400&h=300&fit=crop&saturation=1.2',
-                sizes: ['S', 'M', 'L', 'XL'],
-                colors: ['Dorado', 'Plata', 'Bronce']
-            }
+            { name: 'Casaca Básica', price: 30, description: 'Simple y funcional', image: 'images/logo.png', colors: ['Negro', 'Gris', 'Azul'], sizes: ['S', 'M', 'L', 'XL'] },
+            { name: 'Casaca Deportiva', price: 40, description: 'Ideal para ejercicio y actividades', image: 'images/logo.png', colors: ['Rojo', 'Verde', 'Amarillo'], sizes: ['S', 'M', 'L', 'XL'] },
+            { name: 'Casaca Casual', price: 50, description: 'Perfecta para el día a día', image: 'images/logo.png', colors: ['Beige', 'Mostaza', 'Café'], sizes: ['S', 'M', 'L', 'XL'] },
+            { name: 'Casaca Fashion', price: 60, description: 'Moderna y con estilo', image: 'images/logo.png', colors: ['Rosa', 'Blanco', 'Verde'], sizes: ['S', 'M', 'L', 'XL'] },
+            { name: 'Casaca Premium', price: 70, description: 'Materiales de alta calidad', image: 'images/logo.png', colors: ['Negro', 'Gris Oscuro', 'Blanco'], sizes: ['S', 'M', 'L', 'XL'] },
+            { name: 'Casaca de Lujo', price: 80, description: 'La mejor calidad y diseño', image: 'images/logo.png', colors: ['Dorado', 'Plata', 'Bronce'], sizes: ['S', 'M', 'L', 'XL'] }
+        ]
+    },
+    casacasHombres: {
+        title: 'Casacas Hombre',
+        icon: '👦',
+        models: [
+            { name: 'Casaca Urbana Hombre', price: 85, description: 'Estilo urbano para hombres', image: 'images/logo.png', colors: ['Negro', 'Azul Marino', 'Gris'], sizes: ['S', 'M', 'L', 'XL'] },
+            { name: 'Casaca Invierno Hombre', price: 90, description: 'Abrigo para climas fríos', image: 'images/logo.png', colors: ['Negro', 'Gris', 'Camuflaje'], sizes: ['S', 'M', 'L', 'XL'] },
+            { name: 'Casaca Deportiva Hombre', price: 100, description: 'Ideal para actividades físicas', image: 'images/logo.png', colors: ['Rojo', 'Verde', 'Naranja'], sizes: ['S', 'M', 'L', 'XL'] }
         ]
     },
     gorros: {
         title: 'Gorros',
         icon: '🧢',
         models: [
-            { name: 'Gorro Básico', price: 10, description: 'Sencillo y económico', image: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=400&h=300&fit=crop' },
-            { name: 'Gorro de Lana', price: 15, description: 'Abrigador para el frío', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop' },
-            { name: 'Gorro Deportivo', price: 18, description: 'Para actividades físicas', image: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=400&h=300&fit=crop&brightness=1.1' },
-            { name: 'Gorro Fashion', price: 22, description: 'Moderno y con estilo', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&brightness=1.1' },
-            { name: 'Gorro Premium', price: 25, description: 'Calidad superior', image: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=400&h=300&fit=crop&saturation=1.2' },
-            { name: 'Gorro de Diseñador', price: 29, description: 'Exclusivo y elegante', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&saturation=1.2' }
+            { name: 'Gorro Básico', price: 10, description: 'Sencillo y económico', image: 'images/logo.png' },
+            { name: 'Gorro de Lana', price: 15, description: 'Abrigador para el frío', image: 'images/logo.png' },
+            { name: 'Gorro Deportivo', price: 18, description: 'Para actividades físicas', image: 'images/logo.png' },
+            { name: 'Gorro Fashion', price: 22, description: 'Moderno y con estilo', image: 'images/logo.png' },
+            { name: 'Gorro Premium', price: 25, description: 'Calidad superior', image: 'images/logo.png' },
+            { name: 'Gorro de Diseñador', price: 29, description: 'Exclusivo y elegante', image: 'images/logo.png' }
         ]
     }
 };
@@ -94,35 +61,39 @@ function showModels(productType) {
         const modelDiv = document.createElement('div');
         modelDiv.className = 'model-item';
         modelDiv.innerHTML = `
-            <img class="model-image" src="${model.image}" alt="${model.name}" onerror="this.innerHTML='Imagen no disponible'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center';">
+            <img class="model-image" src="${model.image}" alt="${model.name}" onerror="this.src='images/logo.png';">
             <div class="model-info">
                 <div class="model-details">
                     <span class="model-name">${model.name}</span>
                     <span class="model-price">S/ ${model.price}</span>
                 </div>
-                <div style="color: #666; font-size: 0.9rem;">${model.description}</div> 
+                <div style="color: #666; font-size: 0.9rem;">${model.description}</div>
                 <!-- Opción de color -->
-                ${productType === 'casacas' ? `
+                ${model.colors ? `
                 <div class="color-options">
                     <strong>Color:</strong>
                     <select class="color-select" data-model-index="${index}">
                         <option value="">Selecciona un color</option>
-                        ${model.colors ? model.colors.map(color => `<option value="${color}">${color}</option>`).join('') : ''}
+                        ${model.colors.map(color => `<option value="${color}">${color}</option>`).join('')}
                     </select>
                 </div>
                 ` : ''}
                 <!-- Opción de talla -->
-                ${productType === 'casacas' ? `
+                ${model.sizes ? `
                 <div class="size-options">
                     <strong>Talla:</strong>
                     <select class="size-select" data-model-index="${index}">
                         <option value="">Selecciona una talla</option>
-                        ${model.sizes ? model.sizes.map(size => `<option value="${size}">${size}</option>`).join('') : ''}
+                        ${model.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
                     </select>
                 </div>
                 ` : ''}
-                <!-- Botón Agregar al Carrito -->
-                <button class="add-to-cart-btn" onclick="addToCart(${index})">Agregar al Carrito</button>
+                <!-- Botón Añadir al Carrito -->
+                <button class="add-to-cart-btn" onclick="addToCart(${index})">Añadir al Carrito</button>
+                <!-- Indicador de selección -->
+                <div class="selection-indicator" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
             </div>
         `;
         modelsContainer.appendChild(modelDiv);
@@ -139,35 +110,29 @@ function addToCart(modelIndex) {
     const model = product.models[modelIndex];
     const modelDiv = document.querySelectorAll('.model-item')[modelIndex];
 
-    if (currentProduct === 'casacas') {
-        const colorSelect = modelDiv.querySelector('.color-select');
-        const sizeSelect = modelDiv.querySelector('.size-select');
-        const selectedColor = colorSelect.value;
-        const selectedSize = sizeSelect.value;
+    if (model.colors && !modelDiv.querySelector('.color-select').value) {
+        alert('Por favor, selecciona un color antes de agregar el modelo.');
+        return;
+    }
 
-        if (!selectedColor) {
-            alert('Por favor, selecciona un color antes de agregar el modelo.');
-            return;
-        }
-
-        if (!selectedSize) {
-            alert('Por favor, selecciona una talla antes de agregar el modelo.');
-            return;
-        }
+    if (model.sizes && !modelDiv.querySelector('.size-select').value) {
+        alert('Por favor, selecciona una talla antes de agregar el modelo.');
+        return;
     }
 
     const existingIndex = selectedModels.findIndex(item =>
-        item.productType === currentProduct && item.modelIndex === modelIndex
+        item.productType === currentProduct &&
+        item.modelIndex === modelIndex &&
+        item.color === (model.colors ? modelDiv.querySelector('.color-select').value : null)
     );
 
     if (existingIndex > -1) {
-        // Remove from selection
-        selectedModels.splice(existingIndex, 1);
-        modelDiv.classList.remove('selected');
-        const countElement = modelDiv.querySelector('.selected-count');
-        if (countElement) countElement.remove();
+        // Incrementar cantidad si ya está en el carrito
+        selectedModels[existingIndex].quantity += 1;
+        const selectionIndicator = modelDiv.querySelector('.selection-indicator');
+        selectionIndicator.style.display = 'block';
     } else {
-        // Add to selection
+        // Agregar nuevo modelo al carrito
         selectedModels.push({
             productType: currentProduct,
             modelIndex: modelIndex,
@@ -175,15 +140,13 @@ function addToCart(modelIndex) {
             price: model.price,
             description: model.description,
             quantity: 1,
-            color: currentProduct === 'casacas' ? modelDiv.querySelector('.color-select').value : null,
-            size: currentProduct === 'casacas' ? modelDiv.querySelector('.size-select').value : null
+            color: model.colors ? modelDiv.querySelector('.color-select').value : null,
+            size: model.sizes ? modelDiv.querySelector('.size-select').value : null
         });
-        modelDiv.classList.add('selected');
-        const countElement = document.createElement('div');
-        countElement.className = 'selected-count';
-        countElement.textContent = '1';
-        modelDiv.appendChild(countElement);
+        const selectionIndicator = modelDiv.querySelector('.selection-indicator');
+        selectionIndicator.style.display = 'block';
     }
+
     updateSelectionSummary();
 }
 
@@ -211,12 +174,14 @@ function updateSelectionSummary() {
             <div>
                 <strong>${item.name}</strong><br>
                 <small>Cantidad: ${item.quantity} - S/ ${item.price} c/u</small>
+                ${item.color ? `<small>Color: ${item.color}</small><br>` : ''}
+                ${item.size ? `<small>Talla: ${item.size}</small><br>` : ''}
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
                 <div class="quantity-selector" style="margin: 0;">
-                    <button class="quantity-btn" style="width: 30px; height: 30px; font-size: 1rem;" onclick="changeItemQuantity(${index}, -1)">-</button>
+                    <button class="quantity-btn" onclick="changeItemQuantity(${index}, -1)">-</button>
                     <span style="margin: 0 10px; font-weight: bold;">${item.quantity}</span>
-                    <button class="quantity-btn" style="width: 30px; height: 30px; font-size: 1rem;" onclick="changeItemQuantity(${index}, 1)">+</button>
+                    <button class="quantity-btn" onclick="changeItemQuantity(${index}, 1)">+</button>
                 </div>
                 <button class="remove-btn" onclick="removeItem(${index})">×</button>
             </div>
@@ -233,21 +198,11 @@ function changeItemQuantity(itemIndex, change) {
     const newQuantity = item.quantity + change;
     if (newQuantity >= 1) {
         item.quantity = newQuantity;
-        const modelDiv = document.querySelectorAll('.model-item')[item.modelIndex];
-        const countElement = modelDiv.querySelector('.selected-count');
-        if (countElement) {
-            countElement.textContent = newQuantity;
-        }
         updateSelectionSummary();
     }
 }
 
 function removeItem(itemIndex) {
-    const item = selectedModels[itemIndex];
-    const modelDiv = document.querySelectorAll('.model-item')[item.modelIndex];
-    modelDiv.classList.remove('selected');
-    const countElement = modelDiv.querySelector('.selected-count');
-    if (countElement) countElement.remove();
     selectedModels.splice(itemIndex, 1);
     updateSelectionSummary();
 }
