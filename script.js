@@ -25,6 +25,17 @@ const products = {
                 },
                 colors: ['Azul', 'Verde', 'Rosa']
             },
+            {
+                name: 'Edredón Premium Individual',
+                price: 50,
+                description: 'Calidad superior, muy abrigador',
+                images: {
+                    Negro: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop',
+                    Mostaza: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop',
+                    Café: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&brightness=1.2'
+                },
+                colors: ['Negro', 'Mostaza', 'Café']
+            },
             // ... otros modelos
         ]
     },
