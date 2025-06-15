@@ -93,7 +93,6 @@ function showModels(productType) {
     product.models.forEach((model, index) => {
         const modelDiv = document.createElement('div');
         modelDiv.className = 'model-item';
-        modelDiv.onclick = () => toggleModelSelection(index);
         modelDiv.innerHTML = `
             <img class="model-image" src="${model.image}" alt="${model.name}" onerror="this.innerHTML='Imagen no disponible'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center';">
             <div class="model-info">
@@ -122,6 +121,8 @@ function showModels(productType) {
                     </select>
                 </div>
                 ` : ''}
+                <!-- Botón Agregar al Carrito -->
+                <button class="add-to-cart-btn" onclick="addToCart(${index})">Agregar al Carrito</button>
             </div>
         `;
         modelsContainer.appendChild(modelDiv);
@@ -133,7 +134,7 @@ function showModels(productType) {
     modal.style.display = 'block';
 }
 
-function toggleModelSelection(modelIndex) {
+function addToCart(modelIndex) {
     const product = products[currentProduct];
     const model = product.models[modelIndex];
     const modelDiv = document.querySelectorAll('.model-item')[modelIndex];
@@ -232,7 +233,6 @@ function changeItemQuantity(itemIndex, change) {
     const newQuantity = item.quantity + change;
     if (newQuantity >= 1) {
         item.quantity = newQuantity;
-        // Update the count badge
         const modelDiv = document.querySelectorAll('.model-item')[item.modelIndex];
         const countElement = modelDiv.querySelector('.selected-count');
         if (countElement) {
@@ -244,12 +244,10 @@ function changeItemQuantity(itemIndex, change) {
 
 function removeItem(itemIndex) {
     const item = selectedModels[itemIndex];
-    // Remove visual selection
     const modelDiv = document.querySelectorAll('.model-item')[item.modelIndex];
     modelDiv.classList.remove('selected');
     const countElement = modelDiv.querySelector('.selected-count');
     if (countElement) countElement.remove();
-    // Remove from array
     selectedModels.splice(itemIndex, 1);
     updateSelectionSummary();
 }
