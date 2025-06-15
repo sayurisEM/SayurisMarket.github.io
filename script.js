@@ -177,9 +177,7 @@ function updateSelectionSummary() {
         itemDiv.innerHTML = `
             <div>
                 <strong>${item.name}</strong><br>
-                <small>Cantidad: ${item.quantity} - S/ ${item.price} c/u</small><br>
-                <small>Color: ${item.color}</small><br>
-                ${item.size ? `<small>Talla: ${item.size}</small><br>` : ''}
+                <small>Cantidad: ${item.quantity} - S/ ${item.price} c/u</small>
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
                 <div class="quantity-selector" style="margin: 0;">
@@ -240,7 +238,7 @@ function confirmPurchase() {
 `;
         message += `   💵 Subtotal: S/ ${subtotal}.00
 `;
-        message += `   🎨 Color: ${item.color}
+        message += `   🎨 Color: ${item.color || 'No especificado'}
 `;
         message += `${item.size ? `   👔 Talla: ${item.size}\n` : ''}`;
         message += `   📝 ${item.description}
